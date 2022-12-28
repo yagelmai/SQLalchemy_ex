@@ -5,7 +5,7 @@ from sqlalchemycollector import setup, MetisInstrumentor, PlanCollectType
 app = Flask(__name__)
 with app.app_context():
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:Ya254585!@localhost:5432/cars_api"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://<USER_NAME>:<PASSWORD>@localhost:5432/<DATABASE_NAME>"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db = SQLAlchemy(app)
