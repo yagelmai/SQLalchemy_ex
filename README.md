@@ -1,6 +1,5 @@
-[![HitCount](http://hits.dwyl.io/ro6ley/cars_in_a_flask.svg)](http://hits.dwyl.io/ro6ley/cars_in_a_flask)
 
-# Cars in a Flask
+# sqlalchemy in a Flask
 
 This repository contains the code for this [blogpost](https://stackabuse.com/using-sqlalchemy-with-flask-and-postgresql/).
 
@@ -20,8 +19,8 @@ Kindly ensure you have the following installed:
 1. Clone the repo:
 
     ```
-    $ git clone https://github.com/ro6ley/cars_in_a_flask.git
-    $ cd cars_in_a_flask
+    $ git clone https://github.com/yagelmai/SQLalchemy_ex.git
+    $ cd flask_sqlalchemy_example
     ```
 
 2. With Python 3.6 and Pip installed:
@@ -38,23 +37,20 @@ Kindly ensure you have the following installed:
     $ export FLASK_APP=app.py
     ```
 
-4. Execute the migrations to create the `cars` table:
+4. Execute the migrations to create the `sqlalchemydata` table:
 
     ```
     $ ./env/bin/flask  db migrate
     $ ./env/bin/flask  db upgrade
     ```
+   (now the objects from the code is migrate with the DB)
 
 5. Run the Flask API:
 
     ```
     $ ./env/bin/flask  run
     ```
-
-6. Navigate to `http://localhost:5000/cars` to view the cars data.
-
-## Contribution
-
-Please feel free to raise issues using this [template](./.github/ISSUE_TEMPLATE.md) and I'll get back to you.
-
-You can also fork the repository, make changes and submit a Pull Request using this [template](./.github/PULL_REQUEST_TEMPLATE.md).
+   (now the app is running first thing is doing the join and return DF and after this its listening to localhost:5000)
+6. go to  `http://localhost:5000/run_all`
+7. Navigate to `http://localhost:5000/csvjoinmap` to view the the result.
+8. you can send post request etc..
