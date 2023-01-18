@@ -46,7 +46,7 @@ with app.app_context():
             self.flopcnt = flopcnt
 
         def __repr__(self):
-            return f"<par_exe_csv {self.name}>"
+            return f"<par_exe_csv-{self.cell_name}>"
 
     class PowerMapfile(db.Model):
         __tablename__ = 'par_exe_mapfile'
@@ -61,7 +61,7 @@ with app.app_context():
             self.dlvrloadgndvsense02 = dlvrloadgndvsense02
 
         def __repr__(self):
-            return f"<par_exe_mapfile {self.name}>"
+            return f"<par_exe_mapfile-{self.cell_name}>"
 
     class csvjoinmap(db.Model):
         __tablename__ = 'csvjoinmap'
@@ -76,7 +76,7 @@ with app.app_context():
             self.dlvrloadgndvsense0 = dlvrloadgndvsense0
 
         def __repr__(self):
-            return f"<csvjoinmap {self.name}>"
+            return f"<csvjoinmap-{self.id}>"
 
     @app.route('/')
     def hello():
@@ -165,7 +165,7 @@ with app.app_context():
     def CreateDf():
         try:
             df = pd.read_sql_table('csvjoinmap', db.engine)
-            return {"res": "success"}
+            return df.to_json()
         except Exception as e:
             print(e)
             return {"res": "failed", "reas": str(e)}
@@ -189,7 +189,7 @@ with app.app_context():
         print(t_time - s_time)
         print("create DF: ")
         print(l_time - t_time)
-        return {"df": str(df)}
+        return df
 
 
     @app.route('/par_exe_csv', methods=['POST', 'GET'])
